@@ -7,8 +7,8 @@ export default class ErrorMessage extends Component {
       return (
         <div className="errorMessage">
           <h3>
-            Oops! Looks like '{this.props.pokeNames}' is not a pokemon. Please
-            try again.
+            Oops! Looks like '{this.props.pokeNames}' is not a pokemon. can you
+            Please try again.
           </h3>
         </div>
       );

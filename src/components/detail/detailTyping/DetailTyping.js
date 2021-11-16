@@ -17,6 +17,7 @@ import "./DetailTyping.css";
 import Card from "../../card/Card";
 
 const DetailTyping = ({ types, abilities }) => {
+  //declare the type of data then set it using usestate
   const [typesData, setTypesData] = useState();
   const [abilitiesData, setAbilitiesData] = useState();
   const [loading, setLoading] = useState(false);
