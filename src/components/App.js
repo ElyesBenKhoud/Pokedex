@@ -26,6 +26,7 @@ class App extends Component {
   };
 
   render() {
+    //set the route for navigation
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div>
