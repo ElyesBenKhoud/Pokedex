@@ -17,12 +17,14 @@ class SearchBar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //function to handle the change through the given event
   handleChange = (event) => {
     const inputValue = event.target.value;
     this.setState({ searchQuery: inputValue });
 
     if (!inputValue) return "";
   };
+  //function to submit the event after handling it
   handleSubmit = (event) => {
     console.log("event", event);
     const { searchQuery } = this.state;
