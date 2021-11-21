@@ -26,6 +26,7 @@ export default class PokeGrid extends Component {
             </div>
           </Link>
         ))}
+        {/* navigation from routing to the specific pokemon */}
         <Route exact path="detail/:name" component={Detail} />
       </section>
     );
