@@ -16,6 +16,7 @@ class App extends Component {
     };
   }
 
+  //function to filter the pokemons
   handleFilters = (typeFilters) => {
     console.log("yuh");
     if (!typeFilters) {
