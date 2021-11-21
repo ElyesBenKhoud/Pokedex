@@ -10,14 +10,9 @@ const Generations = (props) => {
   const [genPokemonList, setGenPokemonList] = useState();
   const [loaded, setLoaded] = useState(false);
   const [arrayLength, setarrayLength] = useState(0);
-
   const generationId = props.match.params.num;
-  useEffect(() => {
-    fetchGenerationData();
-  }, []);
-  useEffect(() => {
-    fetchGenerationData();
-  }, [generationId]);
+
+  //fetch pokemon from data api by id
   const fetchGenerationData = async () => {
     setLoaded(false);
     const res = await axios.get(
@@ -29,12 +24,23 @@ const Generations = (props) => {
     setGenPokemonList(sortedPokemon);
     FetchGenPokemon(sortedPokemon);
   };
+  // dynamic render
+  useEffect(() => {
+    fetchGenerationData();
+  }, []);
+  // dynamic render using the id
+  useEffect(() => {
+    fetchGenerationData();
+  }, [generationId]);
+
   const sortPokemons = (a, b) => {
     let regexPat = /\/pokemon-species\/(\d+)\//;
     let Aid = a.url.match(regexPat)[1];
     let Bid = b.url.match(regexPat)[1];
     return Aid - Bid;
   };
+
+  // search
   const FetchGenPokemon = async (pokemon) => {
     let regexPat = /\/pokemon-species\/(\d+)\//;
     let endNum;
@@ -65,6 +71,8 @@ const Generations = (props) => {
     setData(cutPokemon);
     setLoaded(true);
   };
+
+  // change navigation
   const handlePageClick = (direction) => {
     let currentUrlParams = new URLSearchParams(window.location.search);
     let currentPageNum = currentUrlParams.get("page");
@@ -86,6 +94,8 @@ const Generations = (props) => {
     setLoaded(false);
     FetchGenPokemon();
   };
+
+  //rendering router options
   if (!loaded) {
     return (
       <div className="loadingContainer">
