@@ -61,6 +61,7 @@ class SearchBar extends Component {
         >
           Search
         </Button>
+        {/* navigate to the specific pokemon */}
         <Route exact path="detail/:name" component={Detail} />
       </React.Fragment>
     );
